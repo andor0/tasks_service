@@ -1,0 +1,6 @@
+-sname tasks_service
+
+-setcookie tasks_service_cookie
+
++K true
++A 30
