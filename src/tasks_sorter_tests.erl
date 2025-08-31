@@ -73,7 +73,7 @@
             #{
                 <<"command">> => <<"rm /tmp/file1">>,
                 <<"name">> => <<"task-4">>,
-                <<"requires">> => [<<"task-2">>,<<"task-3">>,<<"task-5">>] % task-5 doesn't exists
+                <<"requires">> => [<<"task-2">>,<<"task-3">>,<<"task-5">>] % task-5 doesn't exist
             }
         ]
     }

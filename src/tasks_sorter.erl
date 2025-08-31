@@ -23,15 +23,11 @@ sort([], State) ->
     {ok, #{<<"tasks">> => lists:reverse(State#state.sorted_tasks)}};
 sort([Task | RestTasks], State) ->
     case process_dependicies(Task, State) of
-        {ok, State2} ->
-            sort(
-                RestTasks,
-                State2
-            );
+        {ok, State2} -> sort(RestTasks, State2);
         Error -> Error
     end.
 
-process_dependicies(Task = #{<<"name">> := _}, State) ->
+process_dependicies(Task, State) ->
     process_task_dependicies(Task, [], get_requires(Task), State).
 
 process_task_dependicies(Task, [], [], State) ->
@@ -60,3 +56,4 @@ update_state(Task = #{<<"name">> := Name}, State = #state{processed_tasks = Proc
                 sorted_tasks = [Task | State#state.sorted_tasks]
             }
     end.
+

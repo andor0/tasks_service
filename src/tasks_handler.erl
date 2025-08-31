@@ -28,7 +28,7 @@ handle_request(Req0, {ok, #{<<"tasks">> := Tasks}}, []) ->
         json:encode(Resp),
     Req0);
 handle_request(Req0, {ok, #{<<"tasks">> := Tasks}}, [{<<"render">>, _}]) ->
-    Commands = lists:map( fun(#{<<"command">> := Command}) -> [Command, <<"\n">>] end, Tasks),
+    Commands = lists:map(fun(#{<<"command">> := Command}) -> [Command, <<"\n">>] end, Tasks),
     cowboy_req:reply(200,
         #{<<"content-type">> => <<"text/plain">>},
         iolist_to_binary([[<<"#!/usr/bin/env bash">>, <<"\n">>], Commands]),
