@@ -8,7 +8,7 @@ make run
 
 ## Examples
 
-Store a request body to /tmp/post.json for requests below:
+Store a request body to `/tmp/post.json` for requests below:
 ```
 cat > /tmp/post.json <<EOF
 {
